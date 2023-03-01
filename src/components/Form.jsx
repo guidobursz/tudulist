@@ -38,28 +38,35 @@ const Form = ({ newTodo }) => {
       // console.log(newItem);
       // concat to todos array at layoutApp
       newTodo(newItem);
+      //clean state input
+      setTextInput("");
     }
   };
   return (
     <>
-      <form onSubmit={handleSubmit} className="bg-gray-400">
-        <div className="grid grid-cols-1 md:flex gap-2 p-4 justify-center">
-          <input
-            type="text"
-            placeholder="Agregue Tarea"
-            onChange={(e) => {
-              setTextInput(e.target.value);
-            }}
-            autoFocus
-            className="rounded-full p-2 border-2 border-blue-600 hover:border-blue-900 outline-none md:flex-1"
-          />
-          <div className="flex justify-center">
-            <button
-              type="submit"
-              className="rounded-full bg-blue-400 border-2 border-blue-600 hover:bg-blue-800 hover:border-blue-200 uppercase text-white h-11 w-28 "
-            >
-              Agregar
-            </button>
+      <form
+        onSubmit={handleSubmit}
+        className="border-b-2 border-gray-400 bg-black/20"
+      >
+        <div className="p-5">
+          <div className="w-full h-full rounded-xl flex ">
+            <input
+              type="text"
+              placeholder="Agregue Tarea"
+              onChange={(e) => {
+                setTextInput(e.target.value);
+              }}
+              autoFocus
+              className="h-full p-2 flex-1 rounded-tl-xl rounded-bl-xl focus:outline-blue-400"
+            />
+            <div className="p-1 bg-slate-100 border-l-2 border-zinc-800 rounded-tr-xl rounded-br-xl">
+              <button
+                type="submit"
+                className="h-full focus:outline-none focus:border-none"
+              >
+                Agregar
+              </button>
+            </div>
           </div>
         </div>
         {errorMsg && (

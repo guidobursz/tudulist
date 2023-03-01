@@ -1,6 +1,5 @@
 //
 
-import { useState } from "react";
 import useTodo from "../hooks/useTodo";
 import Form from "./Form";
 import Item from "./Item";
@@ -41,17 +40,21 @@ const LayoutApp = () => {
     // console.log("here logic for update status in state array");
   };
 
+  const cleanAllTodos = () => {
+    setTodos([]);
+  };
+
   //component
   return (
-    <div className="w-9/12 shadow-lg shadow-indigo-500/70">
-      <div className="border-dashed border-2 border-orange-500">
+    <div className="w-[90%] md:w-[80%]">
+      <div className="border-dashed border-2 border-gray-400 rounded-xl">
         <div>
           <Form newTodo={newTodo} />
         </div>
         {todos.length === 0 ? (
           <>
             <div className="flex justify-center m-8">
-              No se encontraron ToDos por hacer...
+              There are not ToDos C:
             </div>
           </>
         ) : (
@@ -59,13 +62,7 @@ const LayoutApp = () => {
         )}
         {todos.length >= 1 ? (
           <>
-            <div className="p-3">
-              <div className="w-full flex justify-center rounded-full p-2 gap-5 text-center uppercase bg-gray-800 font-bold text-white">
-                <div>Fecha</div>
-                <div className="flex-1">Tarea</div>
-                <div>Status</div>
-                <div>Borrar</div>
-              </div>
+            <div className="p-2">
               <div>
                 {todos.map((todo) => (
                   <Item
@@ -75,6 +72,14 @@ const LayoutApp = () => {
                     updateStatus={updateStatus}
                   />
                 ))}
+              </div>
+              <div className="border-t-2 border-black mt-6 flex justify-end">
+                <button
+                  onClick={cleanAllTodos}
+                  className="m-2 bg-slate-700 rounded-xl px-4 py-1 text-white italic mt-3"
+                >
+                  Clean all ToDos
+                </button>
               </div>
             </div>
           </>

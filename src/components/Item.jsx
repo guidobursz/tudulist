@@ -30,7 +30,7 @@ const Item = ({ data, handleDelete, updateStatus }) => {
 
   return (
     <div>
-      <div className="w-full flex bg-gray-400/90 rounded-full gap-3 p-2 my-2  text-center items-center">
+      <div className="w-full flex bg-gray-400/90 rounded-xl gap-3 p-2 my-2  text-center items-center">
         {/* data.estado = done => agregar class line-through*/}
         {data.estado === "todo" ? (
           <>

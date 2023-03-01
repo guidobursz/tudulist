@@ -23,7 +23,7 @@ const useTodo = () => {
 
   useEffect(() => {
     let savedTodos = cookies.todoData;
-    console.log(savedTodos);
+    // console.log(savedTodos);
     setTodos(savedTodos);
     // let todosObj = JSON.parse(savedTodos);
     // console.log(todosObj);
